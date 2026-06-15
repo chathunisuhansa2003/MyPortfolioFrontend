@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AddProject = () => {
+  const navigate = useNavigate();
 
   const [form, setForm] = useState({
     title: "",
@@ -45,6 +47,8 @@ const AddProject = () => {
         github: "",
         live: "",
       });
+
+      navigate("/admin/projects");
 
     } catch (error) {
       console.log(error);

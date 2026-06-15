@@ -1,21 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Education = () => {
-  const educationData = [
-    {
-      degree: "BSc in Software Engineering",
-      institute: "XYZ University",
-      year: "2023 - Present",
-      desc: "Focused on full-stack web development, software engineering and UI/UX design."
-    },
+  const [educationData, setEducationData] = useState([]);
 
-    {
-      degree: "Advanced Level",
-      institute: "ABC College",
-      year: "2019 - 2021",
-      desc: "Completed Advanced Level in Technology Stream."
-    }
-  ];
+  useEffect(() => {
+    const fetchEducation = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/education");
+        const data = await response.json();
+
+        const formattedData = data.map((item) => ({
+          degree: item.degree,
+          institute: item.institute,
+          year: item.year,
+          desc: item.description || "",
+        }));
+
+        setEducationData(formattedData);
+      } catch (error) {
+        console.error("Error fetching education data:", error);
+      }
+    };
+
+    fetchEducation();
+  }, []);
 
   return (
     <>
@@ -133,8 +141,11 @@ const Education = () => {
 
         <div className="education-container">
 
-          {educationData.map((edu, index) => (
-            <div key={index} className="education-card">
+          {educationData.length === 0 ? (
+            <p className="desc">No education records available yet.</p>
+          ) : (
+            educationData.map((edu, index) => (
+              <div key={index} className="education-card">
 
               <h3 className="degree">
                 {edu.degree}
@@ -152,8 +163,9 @@ const Education = () => {
                 {edu.desc}
               </p>
 
-            </div>
-          ))}
+              </div>
+            ))
+          )}
 
         </div>
 

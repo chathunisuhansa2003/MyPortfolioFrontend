@@ -21,7 +21,13 @@ const Navbar = () => {
             <li><a href="#contact">Contact</a></li>
           </ul>
 
-          <a href="#contact" className="btn">Hire Me</a>
+          <a
+            href="http://localhost:5000/download-cv"
+            className="btn"
+            download="Chathuni-Suhansa-CV.pdf"
+          >
+            Download CV
+          </a>
 
         </div>
       </nav>

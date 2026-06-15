@@ -13,8 +13,8 @@ import ContactPage from "./pages/Contact";
 
 import Dashboard from "./admin/Dashboard";
 import AddProject from "./admin/AddProject";
+import AddEducation from "./admin/AddEducation";
 import SecretGate from "./admin/SecretGate";
-import SecretRoute from "./admin/SecretRoute";
 
 import ProjectsAdmin from "./admin/ProjectsAdmin";
 import ContactsAdmin from "./admin/ContactsAdmin";
@@ -42,21 +42,26 @@ function App() {
       <Routes>
         <Route path="/admin" element={<SecretGate />} />
         <Route path="/admin/projects" element={<ProjectsAdmin />} />
+        <Route path="/admin/add-project" element={<AddProject />} />
+        <Route path="/admin/add-education" element={<AddEducation />} />
         <Route path="/admin/contacts" element={<ContactsAdmin />} />
         <Route path="/admin/login" element={<Login />} />
         <Route path="/admin/dashboard" element={<Dashboard />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/education" element={<Education />} />
 
         {/* Portfolio Website */}
         <Route path="/" element={<HomePage />} />
 
         {/* Add Project */}
         <Route path="/add-project" element={<AddProject />} />
+        <Route path="/add-education" element={<AddEducation />} />
       </Routes>
 
 
     </BrowserRouter>
+    
   );
 }
 

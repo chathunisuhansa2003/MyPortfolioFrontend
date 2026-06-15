@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   return (
@@ -30,6 +31,8 @@ const Dashboard = () => {
 
         .card {
           padding: 30px;
+          display: block;
+          text-decoration: none;
 
           background: rgba(255,255,255,0.05);
 
@@ -71,15 +74,15 @@ const Dashboard = () => {
 
         <div className="grid">
 
-          <div className="card">
+          <Link to="/admin/add-project" className="card">
             <h3>Add Projects</h3>
             <p>Manage portfolio projects</p>
-          </div>
+          </Link>
 
-          <div className="card">
+          <Link to="/admin/add-education" className="card">
             <h3>Add Education</h3>
             <p>Manage education details</p>
-          </div>
+          </Link>
 
           <div className="card">
             <h3>Add Skills</h3>
