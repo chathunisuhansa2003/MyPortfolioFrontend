@@ -84,15 +84,20 @@ const Dashboard = () => {
             <p>Manage education details</p>
           </Link>
 
-          <div className="card">
+          <Link to="/admin/add-skills" className="card">
             <h3>Add Skills</h3>
             <p>Manage skills section</p>
-          </div>
+          </Link>
 
-          <div className="card">
+          <Link to="/admin/add-experience" className="card">
+            <h3>Add Experience</h3>
+            <p>Manage work experience details</p>
+          </Link>
+
+          <Link to="/admin/upload-cv" className="card">
             <h3>Upload CV</h3>
             <p>Upload downloadable resume</p>
-          </div>
+          </Link>
 
         </div>
 

@@ -1,21 +1,75 @@
-<section id="experience">
+import React, {
+  useEffect,
+  useState,
+} from "react";
 
-  <h2>Experience</h2>
+const ExperienceAdmin = () => {
 
-  <div className="experience-card">
+  const [items, setItems] =
+    useState([]);
 
-    <h3>Software Engineering Intern</h3>
+  const fetchData = async () => {
 
-    <h4>ABC Company</h4>
+    const response =
+      await fetch(
+        "http://localhost:5000/api/experience"
+      );
 
-    <span>Jan 2025 - Present</span>
+    const data =
+      await response.json();
 
-    <p>
-      Developed MERN stack applications and REST APIs,
-      collaborated with UI/UX designers and optimized
-      application performance.
-    </p>
+    setItems(data);
+  };
 
-  </div>
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-</section>
+  const deleteExperience =
+    async (id) => {
+
+      await fetch(
+        `http://localhost:5000/api/experience/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      fetchData();
+    };
+
+  return (
+    <div style={{ padding: "50px" }}>
+      <h1>Manage Experience</h1>
+
+      {items.map((item) => (
+
+        <div
+          key={item._id}
+          style={{
+            border: "1px solid #ddd",
+            padding: "20px",
+            marginBottom: "20px",
+          }}
+        >
+          <h3>{item.title}</h3>
+
+          <p>{item.company}</p>
+
+          <p>{item.duration}</p>
+
+          <button
+            onClick={() =>
+              deleteExperience(item._id)
+            }
+          >
+            Delete
+          </button>
+
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default ExperienceAdmin;
