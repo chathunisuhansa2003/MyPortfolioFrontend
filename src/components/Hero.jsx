@@ -14,7 +14,7 @@ const Hero = () => {
           align-items: center;
 
           text-align: center;
-          padding: 0 20px;
+          padding: 60px 20px 40px;
 
           background: radial-gradient(circle at top, #0f172a, #020617);
           color: #e2e8f0;
@@ -38,6 +38,49 @@ const Hero = () => {
           top: -120px;
 
           z-index: 0;
+        }
+
+        .hero-content {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 50px;
+          flex-wrap: wrap;
+          width: 100%;
+          max-width: 1200px;
+          z-index: 1;
+        }
+
+        .hero-text {
+          flex: 1;
+          min-width: 300px;
+          text-align: left;
+        }
+
+        .hero-image-wrap {
+          flex: 0 0 320px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .hero-image-card {
+          width: 280px;
+          height: 280px;
+          border-radius: 50% 50% 20px 50%;
+          overflow: hidden;
+          border: 2px solid rgba(56, 189, 248, 0.35);
+          box-shadow: 0 20px 45px rgba(8, 15, 35, 0.45);
+          background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(2, 6, 23, 0.8));
+          padding: 8px;
+        }
+
+        .hero-image-card img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50% 50% 20px 50%;
+          display: block;
         }
 
         /* TITLE */
@@ -64,6 +107,20 @@ const Hero = () => {
           z-index: 1;
           max-width: 700px;
           line-height: 1.8;
+        }
+
+        .hero-badge {
+          display: inline-block;
+          margin-bottom: 16px;
+          padding: 8px 14px;
+          border-radius: 999px;
+          border: 1px solid rgba(56, 189, 248, 0.3);
+          background: rgba(56, 189, 248, 0.12);
+          color: #7dd3fc;
+          font-size: 0.95rem;
+          font-weight: 600;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
         }
 
         /* BUTTON WRAPPER */
@@ -130,6 +187,22 @@ const Hero = () => {
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
+          .hero-content {
+            gap: 30px;
+          }
+
+          .hero-text {
+            text-align: center;
+          }
+
+          .hero-image-wrap {
+            flex-basis: 100%;
+          }
+
+          .hero-image-card {
+            width: 220px;
+            height: 220px;
+          }
 
           .hero-title {
             font-size: 2.8rem;
@@ -154,28 +227,38 @@ const Hero = () => {
       `}</style>
 
       <section id="home" className="hero-section">
+        <div className="hero-content">
+          <div className="hero-text">
+            <span className="hero-badge">Full Stack Developer</span>
+            <h1 className="hero-title">
+              Hi, I'm <span>Chathuni Suhansa </span>
+            </h1>
 
-        <h1 className="hero-title">
-          Hi, I'm <span>Chathuni Suhansa </span>
-        </h1>
+            <p className="hero-subtitle">
+              MERN Stack Developer | UI Designer | Creating modern,
+              responsive and scalable web applications with beautiful UI.
+            </p>
 
-        <p className="hero-subtitle">
-          MERN Stack Developer | UI Designer | Creating modern,
-          responsive and scalable web applications with beautiful UI.
-        </p>
+            <div className="hero-buttons">
+              <a href="#projects" className="btn-primary">
+                View Projects
+              </a>
 
-        <div className="hero-buttons">
+              <a href="#contact" className="btn-secondary">
+                Contact Me
+              </a>
+            </div>
+          </div>
 
-          <a href="#projects" className="btn-primary">
-            View Projects
-          </a>
-
-          <a href="#contact" className="btn-secondary">
-            Contact Me
-          </a>
-
+          <div className="hero-image-wrap">
+            <div className="hero-image-card">
+              <img
+                src={require("../assets/suhansa.jpg")}
+                alt="Chathuni Suhansa" 
+              />
+            </div>
+          </div>
         </div>
-
       </section>
     </>
   );

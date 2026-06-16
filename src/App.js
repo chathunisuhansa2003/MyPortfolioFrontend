@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar";
 import Education from "./components/Education";
 import ProjectsPage from "./pages/Projects";
 import ContactPage from "./pages/Contact";
+import Experience from "./components/Experience";
 
 import Dashboard from "./admin/Dashboard";
 import AddProject from "./admin/AddProject";
@@ -29,6 +30,7 @@ function HomePage() {
       <Skills />
       <Education />
       <Projects />
+      <Experience />
       <Contact />
       <Footer />
     </>
